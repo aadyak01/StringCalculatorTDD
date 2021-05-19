@@ -20,6 +20,7 @@ public class StringCalculatorTest {
 		assertEquals(calc.Add(""), 0);
 		assertEquals(calc.Add("1"), 1);
 		assertEquals(calc.Add("1,2"), 3);
+		assertEquals(calc.Add("1,2,3,5,1"), 12);
 	}
 	
 
