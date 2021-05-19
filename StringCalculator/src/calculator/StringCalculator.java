@@ -5,45 +5,29 @@ package calculator;
 public class StringCalculator {
 
 	public int Add(String numbers) {
-		
-		String[] numListNewLine= numbers.split("\n");
-		String[] numListWithComma= numbers.split(",");
+
+		String[] numList= numbers.split("[\n,]");
 		int sum=0;
-		
-		if(numListWithComma[0]=="") {
+
+		if(numList[0]=="") {
 			return 0;
 		}
-		else if(numListWithComma[0]=="1") {
+		else if(numList[0]=="1") {
 			return 1;
 		}
+
+		else if(numList.length==2) {
+			return Integer.parseInt(numList[0])+Integer.parseInt(numList[1]);
+		}
 		
-		if(numbers.contains(",")) {
-			
-			if(numListWithComma.length==2) {
-				return Integer.parseInt(numListWithComma[0])+Integer.parseInt(numListWithComma[1]);
+		else {
+			for(int i=0;i<numList.length;i++) {
+
+				 sum+= Integer.parseInt(numList[i]);
+
+
 			}
-			else {
-				for(int i=0;i<numListWithComma.length;i++) {
-					
-					 sum+= Integer.parseInt(numListWithComma[i]);
-					
-					
-				}
-			
-			}
-			
-			 
+			 return sum;
 		}
-		if(numbers.contains("\n")) {
-			
-			for(int i=0;i<numListNewLine.length;i++) {
-				
-				 sum+= Integer.parseInt(numListNewLine[i]);
-				
-		}
-			
 	}
-		return sum;
-		
-}
 }

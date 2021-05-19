@@ -35,7 +35,9 @@ public class StringCalculatorTest {
 		assertEquals(calc.Add("1,2,3"), 6);
 		assertEquals(calc.Add("1\n2\n3"), 6);
 			//Invalid Check
-			//assertEquals(calc.Add("1\n,2\n,3"), 6);
+			//assertEquals(calc.Add("1\n,2\n3"), 6)
+		
+		
 		
 		
 	}
