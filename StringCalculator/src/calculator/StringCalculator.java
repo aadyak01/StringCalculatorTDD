@@ -25,14 +25,19 @@ public class StringCalculator {
 		
 		else {
 			for(int i=0;i<numList.length;i++) {
+				
+				if(Integer.parseInt(numList[i])>0) {
+					 sum+= Integer.parseInt(numList[i]);
 
-				 sum+= Integer.parseInt(numList[i]);
-
+				}
+				else if(Integer.parseInt(numList[i])<=0)
+					 throw new RuntimeException("Negatives not allowed: " + Integer.parseInt(numList[i]));
+		    }
 
 			}
 			 return sum;
 		}
-	}
+	
 	
 	public static int addwithMultipleDelimiter(final String numbers) {
 	    String delimiter = ";|,|\n";

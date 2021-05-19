@@ -16,7 +16,7 @@ public class StringCalculatorTest {
 		calc= new StringCalculator();
 	}
 	
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void addTwoStrings() {
 	
 		//Allow Add empty string returns 0
@@ -39,8 +39,30 @@ public class StringCalculatorTest {
 			//assertEquals(calc.Add("1\n,2\n3"), 6)
 		
 	  //Support different delimiters
-	  Assert.assertEquals(1+2+3, StringCalculator.addwithMultipleDelimiter("//;\n1;3;2"));		
+	  Assert.assertEquals(1+2+3, StringCalculator.addwithMultipleDelimiter("//;\n1;3;2"));	
+	  
+	  assertEquals(calc.Add("1,2,-3"), 6);
+	  
 	}
+	  
+	@Test
+	public final void singleNegativeNotAllowed() {
+		 calc.Add("1,-2,3,-4,-8");
+	}
+	 
+	@Test  
+	public final void multipleNegativeNotAllowed() {
+	      RuntimeException exception = null;
+	      try {
+	          calc.Add("1,2,3,-8,6,-4");
+	      } catch (RuntimeException e) {
+	          exception = e;
+	      }
+	      Assert.assertNotNull(exception);
+	      Assert.assertEquals("negatives not allowed: [-4, -8]", exception.getMessage());
+	  }
+	  
+	
 	
 
 }
