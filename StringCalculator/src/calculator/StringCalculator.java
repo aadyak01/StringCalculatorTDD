@@ -26,7 +26,7 @@ public class StringCalculator {
 		else {
 			for(int i=0;i<numList.length;i++) {
 				
-				if(Integer.parseInt(numList[i])>0) {
+				if(Integer.parseInt(numList[i])>0 && Integer.parseInt(numList[i])<1000 ) {
 					 sum+= Integer.parseInt(numList[i]);
 
 				}
