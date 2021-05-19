@@ -45,7 +45,9 @@ public class StringCalculatorTest {
 	  
 	}
 	  
-	@Test
+/* Uncomment to check for Run Time Exception that occur if the list is having single/ multiple negative numbers
+ 
+ 	@Test
 	public final void singleNegativeNotAllowed() {
 		 calc.Add("1,-2,3,-4,-8");
 	}
@@ -62,6 +64,7 @@ public class StringCalculatorTest {
 	      Assert.assertEquals("negatives not allowed: [-4, -8]", exception.getMessage());
 	  }
 	  
+*/
 	
 	
 
