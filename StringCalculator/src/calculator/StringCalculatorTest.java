@@ -2,6 +2,7 @@ package calculator;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void addTwoStrings() {
-		
+	
 		//Allow Add empty string returns 0
 		assertEquals(calc.Add(""), 0);
 		
@@ -37,9 +38,8 @@ public class StringCalculatorTest {
 			//Invalid Check
 			//assertEquals(calc.Add("1\n,2\n3"), 6)
 		
-		
-		
-		
+	  //Support different delimiters
+	  Assert.assertEquals(1+2+3, StringCalculator.addwithMultipleDelimiter("//;\n1;3;2"));		
 	}
 	
 

@@ -2,6 +2,9 @@ package calculator;
 
 
 
+
+
+
 public class StringCalculator {
 
 	public int Add(String numbers) {
@@ -29,5 +32,29 @@ public class StringCalculator {
 			}
 			 return sum;
 		}
+	}
+	
+	public static int addwithMultipleDelimiter(final String numbers) {
+	    String delimiter = ";|,|\n";
+	    String numbersWithoutDelimiter= numbers;
+	    if (numbers.startsWith("//")) {
+	        int i = numbers.indexOf("//") + 2;
+	       // System.out.println(numbers.indexOf(i));
+	        delimiter = numbers.substring(i, i + 1); //get ;
+	       // System.out.println(delimiter);
+	        numbersWithoutDelimiter = numbers.substring(numbers.indexOf("\n") + 1); // number= "//;\n1;3;2"
+	    }
+	    return addDem(numbersWithoutDelimiter, delimiter);
+	}
+	
+	private static int addDem(final String numbers, final String delimiter) {
+	    int sumResult = 0;
+	    String[] arr = numbers.split(delimiter);
+	    for (String number : arr) {
+	        if (!number.trim().isEmpty()) {
+	        	sumResult += Integer.parseInt(number.trim());
+	        }
+	    }
+	    return sumResult;
 	}
 }
